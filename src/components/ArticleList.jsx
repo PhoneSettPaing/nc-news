@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import ArticleCard from "./ArticleCard";
+import ArticlesFilterBar from "./ArticlesFilterBar";
 import { getArticles } from "../../api";
 
 function ArticleList() {
@@ -23,9 +24,14 @@ function ArticleList() {
   if (isLoading) return <p>Loading...</p>;
   if (error) return <p>Sorry, something went wrong there</p>;
 
-  return articles.map((article) => {
-    return <ArticleCard key={article.article_id} article={article} />;
-  });
+  return (
+    <>
+      <ArticlesFilterBar />
+      {articles.map((article) => {
+        return <ArticleCard key={article.article_id} article={article} />;
+      })}
+    </>
+  );
 }
 
 export default ArticleList;

@@ -1,6 +1,6 @@
 import "../styles/FilterBar.css";
 
-function FilterBar() {
+function ArticlesFilterBar() {
   return (
     <div className="filter-bar">
       <div className="filter-content">
@@ -47,4 +47,4 @@ function FilterBar() {
   );
 }
 
-export default FilterBar;
+export default ArticlesFilterBar;
