@@ -11,3 +11,15 @@ export const getArticles = (filterParams) => {
       return data.articles;
     });
 };
+
+export const getArticleById = (article_id) => {
+  return ncNewsApi.get(`/articles/${article_id}`).then(({ data }) => {
+    return data.article;
+  });
+};
+
+export const getCommentsByArticleId = (article_id) => {
+  return ncNewsApi.get(`/articles/${article_id}/comments`).then(({ data }) => {
+    return data.comments;
+  });
+};
