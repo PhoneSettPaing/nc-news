@@ -1,9 +1,9 @@
 import { useParams } from "react-router";
 import { getArticleById, getCommentsByArticleId } from "../../api";
 import { useEffect, useState } from "react";
-import ArticleCard from "./ArticleCard";
 import CommentCard from "./CommentCard";
 import CommentsFilterBar from "./CommentsFilterBar";
+import CommentArticleCard from "./CommentArticleCard";
 
 function CommentList() {
   const [article, setArticle] = useState(null);
@@ -33,7 +33,7 @@ function CommentList() {
 
   return (
     <>
-      <ArticleCard article={article} />
+      <CommentArticleCard article={article} setArticle={setArticle} />
       <div className="comments-container">
         <h4>Comments</h4>
         <CommentsFilterBar />
