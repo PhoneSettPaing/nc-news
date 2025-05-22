@@ -1,10 +1,11 @@
 import "../styles/CommentCard.css"
+import dayjs from "dayjs";
 
 function CommentCard({ comment }) {
   return (
     <div className="comment-card">
       <p>
-        {comment.author} · {comment.created_at}
+        {comment.author} · {dayjs(comment.created_at).format("DD/MM/YYYY HH:mm:ss")}
       </p>
 
       <div className="comment-content">

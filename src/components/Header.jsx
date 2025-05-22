@@ -1,6 +1,10 @@
 import { Link } from "react-router";
+import { useContext } from "react";
+import { AccountContext } from "../context/Account";
 
 function Header() {
+  const { loggedInUser } = useContext(AccountContext);
+
   return (
     <>
       <header>
@@ -8,7 +12,7 @@ function Header() {
           <b>Northcoders News</b>
         </p>
         <Link to="/profile">
-          <button>Sign In</button>
+          <button>{loggedInUser ? "Sign Out" : "Sign In"}</button>
         </Link>
       </header>
 
@@ -16,12 +20,7 @@ function Header() {
         <ul className="navBar">
           <li>
             <Link to="/">
-              <button>Home</button>
-            </Link>
-          </li>
-          <li>
-            <Link to="/profile">
-              <button>Profile</button>
+              <button>Articles</button>
             </Link>
           </li>
           <li>
