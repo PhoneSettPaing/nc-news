@@ -38,3 +38,14 @@ export const patchArticleById = (article_id, votes) => {
       return data.article;
     });
 };
+
+export const postCommentByArticleId = (article_id, username, comment) => {
+  return ncNewsApi
+    .post(`/articles/${article_id}/comments`, {
+      username: username,
+      body: comment,
+    })
+    .then(({ data }) => {
+      return data.comment;
+    });
+};
