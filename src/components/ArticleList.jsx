@@ -6,47 +6,49 @@ import { useSearchParams } from "react-router";
 
 function ArticleList() {
   const [articles, setArticles] = useState([]);
-  const [isLoading, setIsLoading] = useState(null);
+  const [totalArticlesResult, setTotalArticlesResult] = useState(0);
+  const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams();
-  const queryTopic = searchParams.get("topic");
-  console.log(queryTopic);
+  const [filter, setFilter] = useState({
+    sort_by: "created_at",
+    order: "desc",
+    limit: 10,
+    page: 1,
+  });
 
   useEffect(() => {
-    if (queryTopic !== null || queryTopic !== undefined) {
-      setIsLoading("topic");
-      setError(false);
-      const queryParams = { topic: queryTopic };
-      getArticles(queryParams)
-        .then((res) => {
-          setArticles(res);
-        })
-        .catch((err) => {
-          setError(true);
-        })
-        .finally(() => setIsLoading(null));
-    } else {
-      setIsLoading("articles");
-      setError(false);
-      getArticles()
-        .then((res) => {
-          setArticles(res);
-        })
-        .catch((err) => {
-          setError(true);
-        })
-        .finally(() => setIsLoading(null));
-    }
-  }, [queryTopic]);
+    const queryTopic = searchParams.get("topic");
+    setFilter((prevFilter) => ({
+      ...prevFilter,
+      topic: queryTopic || "",
+    }));
+  }, [searchParams]);
 
-  if (isLoading === "topic")
-    return <p>Fetching Articles Related to Topic...</p>;
-  if (isLoading === "articles") return <p>Fetching all Articles...</p>;
+  useEffect(() => {
+    setIsLoading(true);
+    setError(false);
+    getArticles(filter)
+      .then(({ articles, total_count }) => {
+        setArticles(articles);
+        setTotalArticlesResult(total_count);
+      })
+      .catch((err) => {
+        setError(true);
+      })
+      .finally(() => setIsLoading(false));
+  }, [filter]);
+
+  if (isLoading === true) return <p>Fetching all Articles...</p>;
   if (error) return <p>Sorry, something went wrong there</p>;
 
   return (
     <>
-      <ArticlesFilterBar />
+      <ArticlesFilterBar
+        filter={filter}
+        setFilter={setFilter}
+        totalArticlesResult={totalArticlesResult}
+      />
       {articles.map((article) => {
         return <ArticleCard key={article.article_id} article={article} />;
       })}

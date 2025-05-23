@@ -14,7 +14,7 @@ function App() {
         <Route path="/profile" element={<SignInOrOut />} />
         <Route path="/articles/:article_id" element={<CommentList />} />
         <Route path="/topics" element={<TopicList />} />
-        <Route path="/articles" element={<ArticleList />} />
+        <Route path="/articles?" element={<ArticleList />} />
       </Routes>
     </>
   );

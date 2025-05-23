@@ -8,8 +8,8 @@ const ncNewsApi = axios.create({
 export const getArticles = (queryParams) => {
   return ncNewsApi
     .get("/articles", { params: queryParams })
-    .then(({ data }) => {
-      return data.articles;
+    .then(({ data: { articles, total_count } }) => {
+      return { articles: articles, total_count: total_count };
     });
 };
 
