@@ -49,3 +49,7 @@ export const postCommentByArticleId = (article_id, username, comment) => {
       return data.comment;
     });
 };
+
+export const deleteCommentById = (comment_id) => {
+  return ncNewsApi.delete(`/comments/${comment_id}`);
+};

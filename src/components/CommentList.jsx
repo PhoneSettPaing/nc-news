@@ -66,14 +66,33 @@ function CommentList() {
       });
   }
 
+  function handleCommentDelete(comment_id) {
+    setComments((prevComments) =>
+      prevComments.filter(
+        (eachComment) => eachComment.comment_id !== comment_id
+      )
+    );
+  }
+
   return (
     <>
-      <CommentArticleCard article={article} setArticle={setArticle} />
+      <CommentArticleCard
+        article={article}
+        setArticle={setArticle}
+        loggedInUser={loggedInUser}
+      />
       <div className="comments-container">
         <h4>Comments</h4>
         <CommentsFilterBar />
         {comments.map((comment) => {
-          return <CommentCard key={comment.comment_id} comment={comment} />;
+          return (
+            <CommentCard
+              key={comment.comment_id}
+              comment={comment}
+              loggedInUser={loggedInUser}
+              handleCommentDelete={handleCommentDelete}
+            />
+          );
         })}
       </div>
       {loggedInUser ? (
