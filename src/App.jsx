@@ -15,6 +15,7 @@ function App() {
         <Route path="/articles/:article_id" element={<CommentList />} />
         <Route path="/topics" element={<TopicList />} />
         <Route path="/articles?" element={<ArticleList />} />
+        <Route path="*" element={<p>Oops 404! Not Found</p>} />
       </Routes>
     </>
   );
