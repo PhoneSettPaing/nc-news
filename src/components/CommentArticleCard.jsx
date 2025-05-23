@@ -1,13 +1,11 @@
 import "../styles/ArticleCard.css";
-import { useEffect, useState, useContext } from "react";
-import { AccountContext } from "../context/Account";
+import { useEffect, useState } from "react";
 import dayjs from "dayjs";
 import { patchArticleById } from "../../api";
 
-function CommentArticleCard({ article, setArticle }) {
+function CommentArticleCard({ article, loggedInUser }) {
   const [voteStatus, setVoteStatus] = useState(null);
   const [votesCount, setVotesCount] = useState(article.votes);
-  const { loggedInUser } = useContext(AccountContext);
 
   useEffect(() => {
     const storedVoteStatus = localStorage.getItem(`${article.article_id}`);
