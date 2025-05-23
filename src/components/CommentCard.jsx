@@ -31,7 +31,7 @@ function CommentCard({ comment, loggedInUser, handleCommentDelete }) {
           <p>{comment.votes}</p>
           <button>&#8681;</button>
         </div>
-        {loggedInUser.username === comment.author ? (
+        {loggedInUser?.username === comment.author ? (
           <div className="comment-delete-btn">
             <button onClick={handleClick}>Delete</button>
           </div>
