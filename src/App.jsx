@@ -1,21 +1,55 @@
 import Header from "./components/Header";
-import ArticleList from "./components/ArticleList";
+import ArticlesPage from "./pages/ArticlesPage";
 import { Routes, Route } from "react-router";
-import CommentList from "./components/CommentList";
-import SignInOrOut from "./components/SignIn";
-import TopicList from "./components/TopicList";
+import CommentsPage from "./pages/CommentsPage";
+import ProfilePage from "./pages/ProfilePage";
+import TopicsPage from "./pages/TopicsPage";
+import CustomError from "./components/CustomError";
 
 function App() {
   return (
     <>
       <Header />
       <Routes>
-        <Route path="/" element={<ArticleList />} />
-        <Route path="/profile" element={<SignInOrOut />} />
-        <Route path="/articles/:article_id" element={<CommentList />} />
-        <Route path="/topics" element={<TopicList />} />
-        <Route path="/articles?" element={<ArticleList />} />
-        <Route path="*" element={<p>Oops 404! Not Found</p>} />
+        <Route
+          path="/"
+          element={
+            <div className="main-layout">
+              <ArticlesPage />
+              <TopicsPage />
+            </div>
+          }
+        />
+        <Route path="/profile" element={<ProfilePage />} />
+        <Route
+          path="/articles/:article_id"
+          element={
+            <div className="main-layout">
+              <CommentsPage />
+              <TopicsPage />
+            </div>
+          }
+        />
+        <Route path="/topics" element={<TopicsPage />} />
+        <Route
+          path="/articles?"
+          element={
+            <div className="main-layout">
+              <ArticlesPage />
+              <TopicsPage />
+            </div>
+          }
+        />
+        <Route
+          path="*"
+          element={
+            <CustomError>
+              <h1 className="error-title" style={{ marginTop: "2rem" }}>
+                Oops 404 Error! Page Not Found.
+              </h1>
+            </CustomError>
+          }
+        />
       </Routes>
     </>
   );

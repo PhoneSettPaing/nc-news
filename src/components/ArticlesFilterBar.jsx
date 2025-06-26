@@ -1,10 +1,20 @@
 import { useState, useEffect } from "react";
-import "../styles/FilterBar.css";
 
 function ArticlesFilterBar({ filter, setFilter, totalArticlesResult }) {
   const [pages, setPages] = useState(Math.ceil(totalArticlesResult / 10));
+  const [nextDisabled, setNextDisabled] = useState(false);
+  const [prevDisabled, setPrevDisabled] = useState(false);
 
   useEffect(() => {
+    setNextDisabled(false);
+    setPrevDisabled(false);
+    if (filter.p === pages) {
+      setNextDisabled(true);
+    }
+    if (filter.p === 1) {
+      setPrevDisabled(true);
+    }
+
     setPages(Math.ceil(totalArticlesResult / filter.limit));
   }, [filter]);
 
@@ -15,50 +25,98 @@ function ArticlesFilterBar({ filter, setFilter, totalArticlesResult }) {
     }));
   }
 
+  function handleNext() {
+    setFilter((prevFilter) => ({
+      ...prevFilter,
+      p: prevFilter.p + 1,
+    }));
+  }
+
+  function handlePrevious() {
+    setFilter((prevFilter) => ({
+      ...prevFilter,
+      p: prevFilter.p - 1,
+    }));
+  }
+
   return (
-    <div className="filter-bar">
+    <search className="filter-bar">
       <div className="filter-content">
-        <label>Sort By: </label>
-        <select id="sort_by" value={filter.sort_by} onChange={handleChange}>
+        <select
+          id="sort_by"
+          className="article-select"
+          value={filter.sort_by}
+          onChange={handleChange}
+        >
+          <button>
+            <selectedcontent></selectedcontent>
+            <span className="arrow"></span>
+          </button>
           <option value="created_at">Date</option>
           <option value="title">Title</option>
           <option value="topic">Topic</option>
           <option value="author">Author</option>
           <option value="votes">Votes</option>
-          <option value="comment_count">Comment Count</option>
+          <option value="comment_count">Comments</option>
+        </select>
+
+        <select
+          id="order"
+          className="article-select"
+          value={filter.order}
+          onChange={handleChange}
+        >
+          <button>
+            <selectedcontent></selectedcontent>
+            <span className="arrow"></span>
+          </button>
+          <option value="desc">DESC</option>
+          <option value="asc">ASC</option>
+        </select>
+
+        <select
+          id="limit"
+          className="article-select"
+          value={filter.limit}
+          onChange={handleChange}
+        >
+          <button>
+            <selectedcontent></selectedcontent>
+            <span className="arrow"></span>
+          </button>
+          <option value={5}>Limit: 5</option>
+          <option value={10}>Limit: 10</option>
+          <option value={20}>Limit: 20</option>
+          <option value={50}>Limit: 50</option>
         </select>
       </div>
 
-      <div className="filter-content">
-        <label>Order: </label>
-        <select id="order" value={filter.order} onChange={handleChange}>
-          <option value="desc">Desc</option>
-          <option value="asc">Asc</option>
-        </select>
+      <div className="article-pagination">
+        <button disabled={prevDisabled} onClick={handlePrevious}>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            width="46"
+            height="46"
+          >
+            <path d="M15 18l-6-6 6-6" />
+          </svg>
+        </button>
+        <p>{`${filter.p} of ${pages}`}</p>
+        <button disabled={nextDisabled} onClick={handleNext}>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            width="46"
+            height="46"
+          >
+            <path d="M9 6l6 6-6 6" />
+          </svg>
+        </button>
       </div>
-
-      <div className="filter-content">
-        <label>Limit: </label>
-        <select id="limit" value={filter.limit} onChange={handleChange}>
-          <option value={5}>5</option>
-          <option value={10}>10</option>
-          <option value={20}>20</option>
-          <option value={50}>50</option>
-          <option value={100}>100</option>
-        </select>
-      </div>
-
-      <div className="filter-content">
-        <label>Page: </label>
-        <select id="p" value={filter.p} onChange={handleChange}>
-          {Array.from({ length: pages }, (_, i) => (
-            <option key={i + 1} value={i + 1}>
-              {i + 1}
-            </option>
-          ))}
-        </select>
-      </div>
-    </div>
+    </search>
   );
 }
 

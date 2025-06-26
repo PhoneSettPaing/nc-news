@@ -1,4 +1,3 @@
-import "../styles/ArticleCard.css";
 import { Link } from "react-router";
 import dayjs from "dayjs";
 
@@ -8,26 +7,25 @@ function ArticleCard({ article }) {
       style={{ textDecoration: "none" }}
       to={`/articles/${article.article_id}`}
     >
-      <div className="article-card">
+      <article className="article-card">
         <h1>{article.title}</h1>
         <p>
-          {article.author} · {article.topic} · {dayjs(article.created_at).format("DD/MM/YYYY HH:mm:ss")}
+          {article.author} · {article.topic} ·{"   "}
+          {dayjs(article.created_at).format("DD/MM/YYYY")}
         </p>
 
-        <div className="article-content-nobody">
+        <figure className="article-image">
           <img src={article.article_img_url} alt="Article's Image" />
-        </div>
+        </figure>
 
         <div className="article-footer">
-          <div className="vote-box">
-            <p>{article.votes} votes</p>
-          </div>
+          <button className="vote-box">{article.votes} votes</button>
 
-          <div className="comment-box">
-            <p>{article.comment_count} comments</p>
-          </div>
+          <button className="comment-box">
+            {article.comment_count} comments
+          </button>
         </div>
-      </div>
+      </article>
     </Link>
   );
 }

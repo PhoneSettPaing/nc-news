@@ -1,9 +1,9 @@
-import "../styles/SignInForm.css";
 import { AccountContext } from "../context/Account";
 import { useContext, useEffect, useState } from "react";
 import { getUserByUsername } from "../../api";
+import CustomLoading from "../components/CustomLoading";
 
-function SignInOrOut() {
+function ProfilePage() {
   const { loggedInUser, setLoggedInUser } = useContext(AccountContext);
   const [userInput, setUserInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -42,7 +42,7 @@ function SignInOrOut() {
     setLoggedInUser(null);
   }
 
-  if (isLoading) return <p>Loading...</p>;
+  if (isLoading) return <CustomLoading>Loading Profile...</CustomLoading>;
 
   return (
     <div className="signin-container">
@@ -65,16 +65,14 @@ function SignInOrOut() {
           <label htmlFor="username">Username</label>
           <input id="username" type="text" onChange={handleChange} />
           <button>Sing In</button>
-          {error === "No User" ? <p>Username Not Found!</p> : <></>}
+          {error === "No User" ? <p>Username Not Found!</p> : null}
           {error === "No Input" ? (
             <p>Please fill in the required field!</p>
-          ) : (
-            <></>
-          )}
+          ) : null}
         </form>
       )}
     </div>
   );
 }
 
-export default SignInOrOut;
+export default ProfilePage;

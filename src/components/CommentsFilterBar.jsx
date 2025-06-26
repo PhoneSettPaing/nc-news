@@ -1,4 +1,4 @@
-import "../styles/FilterBar.css"
+// import "../styles/FilterBar.css"
 
 function CommentsFilterBar() {
   return (

@@ -19,10 +19,12 @@ export const getArticleById = (article_id) => {
   });
 };
 
-export const getCommentsByArticleId = (article_id) => {
-  return ncNewsApi.get(`/articles/${article_id}/comments`).then(({ data }) => {
-    return data.comments;
-  });
+export const getCommentsByArticleId = (article_id, pageNumber) => {
+  return ncNewsApi
+    .get(`/articles/${article_id}/comments`, { params: pageNumber })
+    .then(({ data }) => {
+      return data.comments;
+    });
 };
 
 export const getUserByUsername = (username) => {
@@ -58,4 +60,12 @@ export const getTopics = () => {
   return ncNewsApi.get("/topics").then(({ data }) => {
     return data.topics;
   });
+};
+
+export const patchCommentById = (comment_id, votes) => {
+  return ncNewsApi
+    .patch(`/comments/${comment_id}`, { inc_votes: votes })
+    .then(({ data }) => {
+      return data.comment;
+    });
 };
