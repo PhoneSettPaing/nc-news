@@ -1,28 +1,43 @@
 import { useState, useEffect } from "react";
 
-function ArticlesFilterBar({ filter, setFilter, totalArticlesResult }) {
+function ArticlesFilterBar({
+  filter,
+  setFilter,
+  totalArticlesResult,
+  setSearchParams,
+}) {
   const [pages, setPages] = useState(Math.ceil(totalArticlesResult / 10));
   const [nextDisabled, setNextDisabled] = useState(false);
   const [prevDisabled, setPrevDisabled] = useState(false);
 
   useEffect(() => {
+    const pageLimit = Math.ceil(totalArticlesResult / filter.limit);
+    setPages(pageLimit);
     setNextDisabled(false);
     setPrevDisabled(false);
-    if (filter.p === pages) {
-      setNextDisabled(true);
-    }
-    if (filter.p === 1) {
-      setPrevDisabled(true);
+
+    if (filter.p > pageLimit) {
+      setFilter((prevFilter) => ({
+        ...prevFilter,
+        p: 1, //reset to page 1 if filter.p is over pageLimit when changing topics
+      }));
     }
 
-    setPages(Math.ceil(totalArticlesResult / filter.limit));
+    if (filter.p >= pageLimit) {
+      setNextDisabled(true);
+    }
+    if (filter.p <= 1) {
+      setPrevDisabled(true);
+    }
   }, [filter]);
 
   function handleChange(e) {
     setFilter((prevFilter) => ({
       ...prevFilter,
       [e.target.id]: e.target.value,
+      p: 1, // reset to first page on sort/order/limit change
     }));
+    setSearchParams(filter);
   }
 
   function handleNext() {

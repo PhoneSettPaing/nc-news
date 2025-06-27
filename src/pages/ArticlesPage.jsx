@@ -52,7 +52,7 @@ function ArticlesPage() {
           <p>Please try again later.</p>
         </div>
         <button
-          onClick={() => window.location.reload()}
+          onClick={() => setFilter((prev) => ({ ...prev }))}
           className="error-button"
         >
           Retry
@@ -66,6 +66,7 @@ function ArticlesPage() {
         filter={filter}
         setFilter={setFilter}
         totalArticlesResult={totalArticlesResult}
+        setSearchParams={setSearchParams}
       />
       <section className="articles-container">
         {articles.map((article) => {

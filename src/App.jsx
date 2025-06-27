@@ -1,6 +1,6 @@
 import Header from "./components/Header";
 import ArticlesPage from "./pages/ArticlesPage";
-import { Routes, Route } from "react-router";
+import { Routes, Route, Navigate } from "react-router";
 import CommentsPage from "./pages/CommentsPage";
 import ProfilePage from "./pages/ProfilePage";
 import TopicsPage from "./pages/TopicsPage";
@@ -11,8 +11,9 @@ function App() {
     <>
       <Header />
       <Routes>
+        <Route path="/" element={<Navigate to="/articles" />} />
         <Route
-          path="/"
+          path="/articles"
           element={
             <div className="main-layout">
               <ArticlesPage />
@@ -31,15 +32,6 @@ function App() {
           }
         />
         <Route path="/topics" element={<TopicsPage />} />
-        <Route
-          path="/articles?"
-          element={
-            <div className="main-layout">
-              <ArticlesPage />
-              <TopicsPage />
-            </div>
-          }
-        />
         <Route
           path="*"
           element={
