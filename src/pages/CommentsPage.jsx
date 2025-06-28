@@ -26,6 +26,7 @@ function CommentsPage() {
   const [commentsError, setCommentsError] = useState(false);
   const [pageNumber, setPageNumber] = useState(1);
   const [hasMore, setHasMore] = useState(true);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const observer = useRef();
   const lastCommentElementRef = useCallback(
@@ -99,7 +100,11 @@ function CommentsPage() {
   function handleSubmit(e) {
     e.preventDefault();
 
+    if (isSubmitting) return;
+    setIsSubmitting(true);
+
     if (!commentInput.trim()) {
+      setIsSubmitting(false);
       return;
     }
 
@@ -115,6 +120,9 @@ function CommentsPage() {
       })
       .catch((err) => {
         toast.error("Failed to submit comment! Please try again!");
+      })
+      .finally(() => {
+        setIsSubmitting(false);
       });
   }
 
@@ -204,7 +212,9 @@ function CommentsPage() {
                   value={commentInput}
                   onChange={handleChange}
                 />
-                <button>Submit</button>
+                <button disabled={isSubmitting}>
+                  {isSubmitting ? "Submitting..." : "Submit"}
+                </button>
               </form>
             </footer>
           ) : null}
