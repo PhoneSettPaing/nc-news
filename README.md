@@ -65,11 +65,11 @@ This frontend project depends on the Northcoders News API, which provides all ar
 
 If you’d like to explore how the backend powers Northcoders News, check out these resources:
 
-🔧 Backend Repository – Dive into the server-side logic, database queries, and RESTful API routes.
-👉 [View Backend Repo](https://github.com/PhoneSettPaing/be_nc_news)
+- **🔧 Backend Repository** – Dive into the server-side logic, database queries, and RESTful API routes.
+ 👉 [View Backend Repo](https://github.com/PhoneSettPaing/be_nc_news)
 
-📡 API Documentation – Learn about available endpoints, query parameters, and response formats for working with articles, topics, and comments.
-👉 [View API Endpoints](https://nc-news-qonp.onrender.com/api)
+- **📡 API Documentation** – Learn about available endpoints, query parameters, and response formats for working with articles, topics, and comments.
+ 👉 [View API Endpoints](https://nc-news-qonp.onrender.com/api)
 
 <br />
 
