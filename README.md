@@ -12,6 +12,18 @@ Northcoders News is a web-based news application that allows users to explore ar
 
 <br />
 
+## 📖 Table of Contents
+
+- [📰 Northcoders News](#-northcoders-news)
+  - [📖 Table of Contents](#-table-of-contents)
+  - [🎯 Project Overview](#-project-overview)
+  - [🔗 Live Demo](#-live-demo)
+  - [✨ Features](#-features)
+  - [🚀 Tech Stack](#-tech-stack)
+  - [📦 Backend Repository \& API](#-backend-repository--api)
+  - [⚙️ Requirements](#️-requirements)
+  - [🛠️ Installation](#️-installation)
+
 ## 🎯 Project Overview
 
 Northcoders News was built as part of the Northcoders bootcamp to demonstrate full-stack development skills and modern frontend practices. Users can browse articles, explore topics, sort and filter news content, and—when logged in—interact by voting and commenting on articles and discussions.
@@ -29,6 +41,7 @@ Whether you're looking for trending stories or diving deep into specific topics,
 ## ✨ Features
 
 - ✅ **View Articles**
+
   - 📰 Browse all news articles
   - 🎯 Filter articles by specific topics
   - 🔎 Sort articles by:
@@ -42,6 +55,7 @@ Whether you're looking for trending stories or diving deep into specific topics,
   - 🔢 Limit article results per page (5, 10, 20, or 50)
 
 - ✅ **View Topics**
+
   - 🗂️ Browse all available news topics
 
 - ✅ **User Authentication**
