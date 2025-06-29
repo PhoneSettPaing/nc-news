@@ -143,4 +143,6 @@ The app should now be running at:
 
 👉 [**http://localhost:5173**](http://localhost:5173) by default
 
-<br />
+---
+
+This project was built as part of the **Software Development Bootcamp in JavaScript** course provided by [**Northcoders**](https://www.northcoders.com/).
