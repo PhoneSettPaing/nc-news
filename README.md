@@ -74,3 +74,34 @@ To run this project locally, make sure you have the following installed:
 <br />
 
 ## 🛠️ Installation
+
+Follow these steps to run the project locally:
+
+**1. Clone the repository**
+
+```bash
+git clone https://github.com/PhoneSettPaing/nc-news.git
+```
+
+**2. Navigate into the project directory**
+
+```bash
+cd nc-news
+```
+
+**3. Install all dependencies**
+
+```bash
+npm install
+```
+
+**4. Start the development server**
+
+```bash
+npm run dev
+```
+
+The app should now be running at:
+👉 [**http://localhost:5173**](http://localhost:5173) by default
+
+<br />
