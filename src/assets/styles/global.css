@@ -251,7 +251,6 @@ select {
   gap: 0.5rem;
   display: flex;
   border: none;
-  /* border: 1px solid #686868; */
   border-radius: 20px;
   color: black;
   background-color: #ddd;

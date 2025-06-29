@@ -1,5 +1,5 @@
 import { Link } from "react-router";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { AccountContext } from "../context/Account";
 
 function Header() {

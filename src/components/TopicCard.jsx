@@ -1,4 +1,3 @@
-// import "../styles/ArticleCard.css";
 import { Link } from "react-router";
 
 function TopicCard({ topic }) {

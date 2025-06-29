@@ -1,5 +1,4 @@
 import axios from "axios";
-import { data } from "react-router";
 
 const ncNewsApi = axios.create({
   baseURL: "https://nc-news-qonp.onrender.com/api",

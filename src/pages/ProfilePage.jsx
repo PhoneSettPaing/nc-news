@@ -1,5 +1,5 @@
 import { AccountContext } from "../context/Account";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { getUserByUsername } from "../../api";
 import CustomLoading from "../components/CustomLoading";
 
@@ -45,7 +45,7 @@ function ProfilePage() {
   if (isLoading) return <CustomLoading>Loading Profile...</CustomLoading>;
 
   return (
-    <div className="signin-container">
+    <main className="signin-container">
       {loggedInUser ? (
         <div className="profile-container">
           <img src={loggedInUser.avatar_url} alt="profile image" />
@@ -71,7 +71,7 @@ function ProfilePage() {
           ) : null}
         </form>
       )}
-    </div>
+    </main>
   );
 }
 
