@@ -24,6 +24,8 @@ Northcoders News is a web-based news application that allows users to explore ar
   - [⚙️ Requirements](#️-requirements)
   - [🛠️ Installation](#️-installation)
 
+<br />
+
 ## 🎯 Project Overview
 
 Northcoders News was built as part of the Northcoders bootcamp to demonstrate full-stack development skills and modern frontend practices. Users can browse articles, explore topics, sort and filter news content, and—when logged in—interact by voting and commenting on articles and discussions.
