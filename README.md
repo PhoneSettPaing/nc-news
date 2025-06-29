@@ -8,7 +8,15 @@
 
 # 📰 Northcoders News
 
-A frontend news application built as part of the Northcoders bootcamp, enabling users to browse articles, topics, and interact through comments and voting.
+Northcoders News is a web-based news application that allows users to explore articles, browse topics, and engage with content through voting and commenting. Designed with a modern React frontend, it delivers a smooth, dynamic user experience for news enthusiasts and developers alike.
+
+<br />
+
+## 🎯 Project Overview
+
+Northcoders News was built as part of the Northcoders bootcamp to demonstrate full-stack development skills and modern frontend practices. Users can browse articles, explore topics, sort and filter news content, and—when logged in—interact by voting and commenting on articles and discussions.
+
+Whether you're looking for trending stories or diving deep into specific topics, Northcoders News offers an interactive way to explore and engage with news data.
 
 <br />
 
@@ -48,6 +56,20 @@ A frontend news application built as part of the Northcoders bootcamp, enabling 
 ## 🚀 Tech Stack
 
 <p align="left"> <a href="https://github.com/alexandresanlim/Badges4-README.md-Profile" ><img src="https://img.shields.io/badge/Vite-B73BFE?style=for-the-badge&logo=vite&logoColor=FFD62E" alt="vite" /></a> <a href="https://github.com/alexandresanlim/Badges4-README.md-Profile" ><img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="react" /></a> <a href="https://github.com/alexandresanlim/Badges4-README.md-Profile" ><img src="https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E" alt="javascript" /></a> <a href="https://github.com/alexandresanlim/Badges4-README.md-Profile" ><img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="css" /></a> <a href="https://github.com/alexandresanlim/Badges4-README.md-Profile"><img src="https://img.shields.io/badge/axios-671ddf?&style=for-the-badge&logo=axios&logoColor=white" alt="axios" /></a> <a href="https://github.com/alexandresanlim/Badges4-README.md-Profile" ><img src="https://img.shields.io/badge/Netlify-00C7B7?style=for-the-badge&logo=netlify&logoColor=white" alt="netlify" /></a> <a href="https://github.com/alexandresanlim/Badges4-README.md-Profile" ><img src="https://img.shields.io/badge/GIT-E44C30?style=for-the-badge&logo=git&logoColor=white" alt="git" /></a> <a href="https://github.com/alexandresanlim/Badges4-README.md-Profile" ><img src="https://img.shields.io/badge/VSCode-0078D4?style=for-the-badge&logo=visual%20studio%20code&logoColor=white" alt="vscode" /></a> <a href="https://badges.pages.dev/" ><img src="https://img.shields.io/badge/Excalidraw-6965DB?logo=excalidraw&logoColor=fff&style=for-the-badge" alt="excalidraw" /></a> </p>
+
+<br />
+
+## 📦 Backend Repository & API
+
+This frontend project depends on the Northcoders News API, which provides all article, comment, and topic data.
+
+If you’d like to explore how the backend powers Northcoders News, check out these resources:
+
+🔧 Backend Repository – Dive into the server-side logic, database queries, and RESTful API routes.
+👉 [View Backend Repo](https://github.com/PhoneSettPaing/be_nc_news)
+
+📡 API Documentation – Learn about available endpoints, query parameters, and response formats for working with articles, topics, and comments.
+👉 [View API Endpoints](https://nc-news-qonp.onrender.com/api)
 
 <br />
 
