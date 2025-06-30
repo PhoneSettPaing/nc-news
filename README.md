@@ -23,6 +23,7 @@ Northcoders News is a web-based news application that allows users to explore ar
   - [📦 Backend Repository \& API](#-backend-repository--api)
   - [⚙️ Requirements](#️-requirements)
   - [🛠️ Installation](#️-installation)
+  - [👤 Logging In](#-logging-in)
 
 <br />
 
@@ -66,6 +67,13 @@ Whether you're looking for trending stories or diving deep into specific topics,
     - 👍 Vote comments up (+1) or 👎 down (-1)
     - 📝 Post comments on articles
     - 🗑️ Delete their own comments
+  - ℹ️ **Available test users:**
+    - `cooljmessy`
+    - `weegembump`
+    - `tickle122`
+    - `grumpy19`
+    - `happyamy2016`
+    - `jessjelly`
 
 <br />
 
@@ -144,6 +152,19 @@ npm run dev
 The app should now be running at:
 
 👉 [**http://localhost:5173**](http://localhost:5173) by default
+
+<br />
+
+## 👤 Logging In
+
+This app does not have user registration yet. To test features that require login (like voting and commenting), use one of these existing usernames:
+
+- `cooljmessy`
+- `weegembump`
+- `tickle122`
+- `grumpy19`
+- `happyamy2016`
+- `jessjelly`
 
 ---
 
